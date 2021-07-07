@@ -2,13 +2,13 @@
 
 <%= form_with model: @item, url:'/items', local:true do |f| %>
 <h5>商品画像</h5>
- <%= f.attachment_field :image %>
+ <%= f.attachment_field :image  %>
  <h5>商品名</h5>
  <%= f.text_field :name, class:"form-control" %>
  <h5>商品説明</h5>
    <%= f.text_area :introduction, class:"form-control" %>
  <h5>ジャンル</h5>
-   <%= f.select :genre_id, [["ケーキ", "1"], ["プリン", "2"],["焼き菓子", "3"],["キャンディ", "4"]], include_blank: "選択して下さい" %>
+  %= f.collection_select :genre_id, Genre.all, :id, :genre_name %>
  <h5>税抜価格</h5>
  <%= f.text_field :price, class:"form-control" %>
  　
